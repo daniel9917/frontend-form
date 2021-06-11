@@ -114,6 +114,11 @@ export class FormComponent implements OnInit {
 
     this.userService.postCreateUser(userPost).subscribe((resp:any)=>{
         console.log(resp);
+        if(resp != null){
+          alert("Se ha creado el perfil correctamente.");
+          window.location.reload();
+        }
+
       });
   }
 

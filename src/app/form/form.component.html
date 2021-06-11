@@ -1,73 +1,110 @@
 <div class="container">
-    <form class="" [formGroup]=form (ngSubmit)="save($event)">
-        <div class="">
-            <label class="label">Primer nombre:</label>
-            <div class="">
-                <input type="text" formControlName="name" id="name" placeholder="John">
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <h1>Regístrate, es gratis!</h1>
+        </div>
+    </div>
+    <br>
+    <form [formGroup]=form (ngSubmit)="save($event)">
+
+        <div class="row alling-items-center">
+            <div class="col-3">
+                <label class="form-label" for="name">Primer nombre:</label>
             </div>
-            <div *ngIf="form.get('name')?.errors && form.get('name')?.dirty" class="col-12">
-                <small *ngIf="form.get('name')?.hasError('required')">Este campo es requerido</small>
-                <small *ngIf="form.get('name')?.hasError('pattern')">Solo se permiten letras sin espacios en este campo
+            <div class="col">
+                <input class="form-control" type="text" formControlName="name" id="name" placeholder="John">
+            </div>
+            <div class="col-12" *ngIf="form.get('name')?.errors && form.get('name')?.dirty">
+                <small class="form-control" *ngIf="form.get('name')?.hasError('required')">Este campo es
+                    requerido</small>
+                <small class="form-control" *ngIf="form.get('name')?.hasError('pattern')">Solo se permiten letras sin
+                    espacios en este
+                    campo
                 </small>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12">
-                Primer Apellido
-                <input type="text" formControlName="lastName" id="lastName" placeholder="Doe">                
-            </div>            
-            <div *ngIf="form.get('lastName')?.errors && form.get('lastName')?.dirty" class="col-12">
-                <small *ngIf="form.get('lastName')?.hasError('required')">Este campo es requerido</small>
-                <small *ngIf="form.get('lastName')?.hasError('pattern')">Solo se permiten letras sin espacios en este
+        <br>
+        <div class="row alling-items-center">
+
+            <div class="col-3">
+                <label class="form-label" for="lastname">Primer Apellido: </label>
+            </div>
+            <div class="col">
+                <input class="form-control" type="text" formControlName="lastName" id="lastName" placeholder="Doe">
+            </div>
+            <div class="col-12" *ngIf="form.get('lastName')?.errors && form.get('lastName')?.dirty"  >
+                <small *ngIf="form.get('lastName')?.hasError('required')" class="form-control">Este campo es requerido</small>
+                <small *ngIf="form.get('lastName')?.hasError('pattern')" class="form-control">Solo se permiten letras sin espacios en
+                    este
                     campo </small>
-            </div>
+            </div>           
         </div>
 
-        <div class="row">
-            <div class="col-12">
-                Cédula
-                <input type="number" formControlName="cedula" id="cedula" placeholder="1234567890">
+        <br>
+
+        <div class="row alling-items-center">
+
+            <div class="col-3">
+                <label class="form-label" for="cedula">Cédula:</label>
             </div>
-            <div  *ngIf="(_cedula)" class="col-12">                                       
-                <small>Este valor de cédula ha sido registrado previamente</small>                            
+
+            <div class="col">
+                <input class="form-control" type="number" formControlName="cedula" id="cedula" placeholder="1234567890">
             </div>
+            
+            <div *ngIf="(_cedula)" class="col-12">
+                <br>
+                <small class="form-control">Este valor de cédula ha sido registrado previamente</small>
+            </div>
+
             <div *ngIf="form.get('cedula')?.errors && form.get('cedula')?.dirty" class="col-12">
-                <small *ngIf="form.get('cedula')?.hasError('required')">Este campo es requerido</small>
-                <small *ngIf="form.get('cedula')?.hasError('min')">Valor mínimo debe ser 0</small>
-                <small *ngIf="form.get('cedula')?.hasError('max')">Valor máximo debe ser 9999999999</small>
+                <br>
+                <small *ngIf="form.get('cedula')?.hasError('required')" class="form-control">Este campo es requerido</small>
+                <small *ngIf="form.get('cedula')?.hasError('min')" class="form-control">Valor mínimo debe ser 0</small>
+                <small *ngIf="form.get('cedula')?.hasError('max')" class="form-control">Valor máximo debe ser 9999999999</small>
             </div>
+            
         </div>
+        <br>
+        <div class="row alling-items-center">
 
-        <div class="row">
-            <div class="col-12">
-                Correo
-                <input type="email" formControlName="email" id="email" placeholder="example@ex.com">                                               
+            <div class="col-3">
+                <label class="form-label" for="email">Correo:</label>
             </div>
-            <div  *ngIf="(_email)" class="col-12">                                       
-                <small>Este valor de email ha sido registrado previamente</small>                            
-            </div>
+            <div class="col">
+                <input class="form-control" type="email" formControlName="email" id="email" placeholder="example@ex.com">
+            </div>    
+            <div *ngIf="(_email)" class="col-12">
+                <small class="form-control">Este valor de email ha sido registrado previamente</small>
+            </div>        
             <div *ngIf="form.get('email')?.errors && form.get('email')?.dirty" class="col-12">
-                <small *ngIf="form.get('email')?.hasError('required')">Este campo es requerido</small>                
-                <small *ngIf="form.get('email')?.hasError('email')">Por favor ingrese un formato válido de correo</small>
-            </div>
+                <small class="form-control" *ngIf="form.get('email')?.hasError('required')">Este campo es requerido</small>
+                <small class="form-control" *ngIf="form.get('email')?.hasError('email')">Por favor ingrese un formato válido de
+                    correo</small>
+            </div>           
         </div>
+        <br>
 
-        <div class="row">
-            <div class="col-12">
-                Teléfono
-                <input type="number" formControlName="phone" id="phone" placeholder="5555555">
+        <div class="row alling-items-center">
+
+            <div class="col-3">
+                <label class="form-label" for="phone">Teléfono:</label>
+            </div>
+            <div class="col">
+                <input class="form-control" type="number" formControlName="phone" id="phone" placeholder="5555555">
             </div>
             <div *ngIf="form.get('phone')?.errors && form.get('phone')?.dirty" class="col-12">
-                <small *ngIf="form.get('phone')?.hasError('required')">Este campo es requerido</small>
-                <small *ngIf="form.get('phone')?.hasError('min')">Valor mínimo debe ser 1111111</small>
-                <small *ngIf="form.get('phone')?.hasError('max')">Valor máximo debe ser 9999999999</small>
+                <small class="form-control" *ngIf="form.get('phone')?.hasError('required')">Este campo es requerido</small>
+                <small class="form-control" *ngIf="form.get('phone')?.hasError('min')">Valor mínimo debe ser 1111111</small>
+                <small class="form-control" *ngIf="form.get('phone')?.hasError('max')">Valor máximo debe ser 9999999999</small>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col">
-                <button type="submit" [disabled]="form.invalid">Enviar Datos</button>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <button class="btn btn-success" type="submit" [disabled]="form.invalid">Enviar <i
+                        class="bi bi-check-lg"></i></button>
             </div>
         </div>
     </form>

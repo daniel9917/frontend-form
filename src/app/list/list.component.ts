@@ -15,6 +15,10 @@ export class ListComponent implements OnInit {
   form = new FormGroup({});
   public _email = false
   public _cedula = false
+  public cedulaV!: number
+  public emailV!: string
+
+
 
   constructor(private userService : UserServiceService, private  modalService: NgbModal, private formBuilder : FormBuilder,){ 
     
@@ -28,7 +32,11 @@ export class ListComponent implements OnInit {
   }
 
   open(content:any, user: User) {
+    
     this.buildForm(user);
+    this.cedulaV = this.form.get('cedula')?.value;
+    this.emailV = this.form.get('email')?.value;
+    console.log("cedula :" +this.cedulaV+" y correo: "+this.emailV)
     this.form.get('email')?.valueChanges.
     pipe(
       debounceTime(1000)      
