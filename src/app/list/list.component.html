@@ -1,0 +1,111 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Actualización de usuarios</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]=form (ngSubmit)="save($event)">
+            <div class="form-group">
+                <div>
+                    <label>Id</label>
+                    <input formControlName="iden" type="number" id="iden">
+                </div>
+                <div>
+                    <label>Primer Nombre</label>
+                    <div>
+                        <input formControlName="name" type="text" id="name">
+                    </div>
+                    <div *ngIf="form.get('name')?.errors && form.get('name')?.dirty" class="col-12">
+                        <small *ngIf="form.get('name')?.hasError('required')">Este campo es requerido</small>
+                        <small *ngIf="form.get('name')?.hasError('pattern')">Solo se permiten letras sin espacios en
+                            este campo
+                        </small>
+                    </div>
+                </div>
+                <div>
+                    <label>Primer Apellido</label>
+                    <div>
+                        <input formControlName="lastName" type="text" id="lastNname">
+                    </div>
+                    <div *ngIf="form.get('lastName')?.errors && form.get('lastName')?.dirty" class="col-12">
+                        <small *ngIf="form.get('lastName')?.hasError('required')">Este campo es requerido</small>
+                        <small *ngIf="form.get('lastName')?.hasError('pattern')">Solo se permiten letras sin espacios en este
+                            campo </small>
+                    </div>
+                </div>
+                <div>
+                    <label>Cedula</label>
+                    <div>
+                        <input formControlName="cedula" type="number" id="cedula">
+                    </div>
+                    <div  *ngIf="(_cedula)" class="col-12">                                       
+                        <small>Este valor de cédula ha sido registrado previamente</small>                            
+                    </div>
+                    <div *ngIf="form.get('cedula')?.errors && form.get('cedula')?.dirty" class="col-12">
+                        <small *ngIf="form.get('cedula')?.hasError('required')">Este campo es requerido</small>
+                        <small *ngIf="form.get('cedula')?.hasError('min')">Valor mínimo debe ser 0</small>
+                        <small *ngIf="form.get('cedula')?.hasError('max')">Valor máximo debe ser 9999999999</small>
+                    </div>
+                </div>
+                <div>
+                    <label>Correo</label>
+                    <div>
+                        <input formControlName="email" type="email" id="email">
+                    </div>
+                    <div  *ngIf="(_email)" class="col-12">                                       
+                        <small>Este valor de email ha sido registrado previamente</small>                            
+                    </div>
+                    <div *ngIf="form.get('email')?.errors && form.get('email')?.dirty" class="col-12">
+                        <small *ngIf="form.get('email')?.hasError('required')">Este campo es requerido</small>                
+                        <small *ngIf="form.get('email')?.hasError('email')">Por favor ingrese un formato válido de correo</small>
+                    </div>
+                </div>
+                <div>
+                    <label>Teléfono</label>
+                    <div>
+                        <input formControlName="phone" type="number" id="phone">
+                    </div>
+                    <div *ngIf="form.get('phone')?.errors && form.get('phone')?.dirty" class="col-12">
+                        <small *ngIf="form.get('phone')?.hasError('required')">Este campo es requerido</small>
+                        <small *ngIf="form.get('phone')?.hasError('min')">Valor mínimo debe ser 1111111</small>
+                        <small *ngIf="form.get('phone')?.hasError('max')">Valor máximo debe ser 9999999999</small>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" [disabled]="form.invalid" class="btn btn-outline-dark" (click)="save($event)">Save</button>
+    </div>
+</ng-template>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Cedula</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Editar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of usuarios">
+            <th scope="row">{{u.id}}</th>
+            <td>{{u.name}}</td>
+            <td>{{u.lastName}}</td>
+            <td>{{u.cedula}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.phone}}</td>
+            <td>
+                <button type="button" class="btn btn-success" (click)="open(content,u)">Editar</button>
+                <!-- <button type="button" class="btn btn-success" (click)="open(content)">Submit</button> -->
+            </td>
+        </tr>
+    </tbody>
+</table>
