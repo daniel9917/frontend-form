@@ -1,0 +1,46 @@
+.f-body{
+    background-color: #00838F;  
+    
+}
+
+p{
+    font-weight: bold;
+}
+a{
+    color: whitesmoke;
+}
+
+.f-footer{
+    background-color: #026169;    
+    font-family: 'Baloo Tammudu 2', cursive;
+}
+
+.bi-instagram::before{
+    
+    color: whitesmoke;
+}
+
+.bi-twitter::before{
+    
+    color: whitesmoke;
+}
+
+.bi-facebook::before{
+    
+    color: whitesmoke;
+}
+
+.bi-linkedin::before{
+    
+    color: whitesmoke;
+}
+
+.bi-google::before{
+    
+    color: whitesmoke;
+}
+
+.bi-github::before{
+    
+    color: whitesmoke;
+}

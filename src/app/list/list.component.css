@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500&display=swap');
 .my-custom-scrollbar {
     position: relative;
     height: 200px;
@@ -6,3 +7,37 @@
     .table-wrapper-scroll-y {
     display: block;
     }
+
+td,th,tr{
+    text-align: center;
+    font-family: 'Baloo Tammudu 2', cursive;
+}
+
+th{
+    text-align: center;
+    font-family: 'Baloo Tammudu 2', cursive;
+    color: cadetblue;
+}
+
+h1{
+    text-align: center;
+    font-family: 'Baloo Tammudu 2', cursive;
+    font-weight: bold;
+}
+
+thead{
+    background: currentColor;
+}
+
+div.modal-header, div.modal-footer{
+    text-align: center;
+    font-family: 'Baloo Tammudu 2', cursive;
+    font-weight: bold;
+    background: cadetblue;
+}
+
+div.modal-body{
+    text-align: center;
+    font-family: 'Baloo Tammudu 2', cursive;    
+    background: gainsboro;
+}
